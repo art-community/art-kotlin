@@ -63,6 +63,12 @@ subprojects {
     apply(plugin = "maven-publish")
     apply(plugin = "java-library")
 
+    dependencies {
+        val lombokVersion: String by project
+        compileOnly("org.projectlombok", "lombok", lombokVersion)
+        annotationProcessor("org.projectlombok", "lombok", lombokVersion)
+    }
+
     tasks.findByPath("check")?.let { check ->
         check.setDependsOn(check.dependsOn
                 .filter { task ->
