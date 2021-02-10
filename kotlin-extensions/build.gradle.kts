@@ -11,6 +11,7 @@ dependencies {
     implementation(project(":value"))
     implementation(project(":model"))
     implementation(project(":rsocket"))
+    implementation(project(":http"))
     implementation(project(":json"))
     implementation(project(":message-pack"))
     implementation(project(":protobuf"))
