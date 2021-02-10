@@ -44,8 +44,8 @@ val artProjects = mapOf("art-java" to "1.3.0")
 
 artProjects.forEach { (name, version) ->
     if (!file("$computedArtDirectory$separator$name").exists()) {
-        ProcessBuilder("git", "clone", "$artCommunityUrl/$name", file(computedArtDirectory!!).absolutePath).start().waitFor()
-        ProcessBuilder("git", "checkout", version).directory(file(computedArtDirectory!!)).start().waitFor()
+        ProcessBuilder("git", "clone", "$artCommunityUrl/$name", file("$computedArtDirectory$separator$name").absolutePath).start().waitFor()
+        ProcessBuilder("git", "checkout", version).directory(file("$computedArtDirectory$separator$name")).start().waitFor()
     }
 }
 
