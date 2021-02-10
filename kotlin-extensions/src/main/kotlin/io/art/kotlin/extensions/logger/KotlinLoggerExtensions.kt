@@ -1,4 +1,4 @@
-package io.art.kotlin.extensions
+package io.art.kotlin.extensions.logger
 
 import io.art.logging.LoggingModule.logger
 import org.apache.logging.log4j.core.Logger

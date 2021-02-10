@@ -1,9 +1,8 @@
-package io.art.kotlin.extensions
+package io.art.kotlin.extensions.communicator
 
 import io.art.communicator.module.CommunicatorModule.communicator
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
-
 
 class CommunicatorDelegate {
     inline operator fun <reified T> getValue(thisRef: Any?, property: KProperty<*>): T = communicator(T::class.java)

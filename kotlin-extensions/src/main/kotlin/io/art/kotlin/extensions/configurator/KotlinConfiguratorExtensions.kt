@@ -1,9 +1,8 @@
-package io.art.kotlin.extensions
+package io.art.kotlin.extensions.configurator
 
 import io.art.configurator.module.ConfiguratorModule.configuration
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
-
 
 class ConfigurationDelegate {
     inline operator fun <reified T> getValue(thisRef: Any?, property: KProperty<*>): T = configuration(T::class.java)
