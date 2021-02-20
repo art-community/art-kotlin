@@ -3,6 +3,7 @@ package io.art.kotlin.extensions.model.module
 import io.art.kotlin.extensions.model.communicator.CommunicatorModelConfiguratorExtension
 import io.art.kotlin.extensions.model.configurator.ConfiguratorModelConfiguratorExtension
 import io.art.kotlin.extensions.model.server.ServerModelConfiguratorExtension
+import io.art.kotlin.extensions.model.storage.StorageModelConfiguratorExtension
 import io.art.kotlin.extensions.model.value.ValueModelConfiguratorExtension
 import io.art.model.configurator.ModuleModelConfigurator
 
@@ -17,6 +18,10 @@ class ModuleModelConfiguratorExtension(id: String, val delegate: ModuleModelConf
 
     fun communicate(configurator: CommunicatorModelConfiguratorExtension.() -> Unit) = delegate
             .communicate { value -> CommunicatorModelConfiguratorExtension(value).apply(configurator).delegate }
+            .let { this }
+
+    fun store(configurator: StorageModelConfiguratorExtension.() -> Unit) = delegate
+            .store { value -> StorageModelConfiguratorExtension(value).apply(configurator).delegate }
             .let { this }
 
     fun configure(configurator: ConfiguratorModelConfiguratorExtension.() -> Unit) = delegate
