@@ -21,7 +21,7 @@ class ModuleModelConfiguratorExtension(id: String, val delegate: ModuleModelConf
             .let { this }
 
     fun store(configurator: StorageModelConfiguratorExtension.() -> Unit) = delegate
-            .store { value -> StorageModelConfiguratorExtension(value).apply(configurator).delegate }
+            .store { value -> StorageModelConfiguratorExtension(value).apply(configurator) }
             .let { this }
 
     fun configure(configurator: ConfiguratorModelConfiguratorExtension.() -> Unit) = delegate
