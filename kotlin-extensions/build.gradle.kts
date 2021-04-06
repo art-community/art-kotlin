@@ -1,6 +1,8 @@
 plugins {
-    kotlin("jvm") version "1.4.20"
+    kotlin("jvm") version "1.4.32"
 }
+
+println(rootProject.subprojects.map { it.name })
 
 dependencies {
     implementation(project(":launcher"))
