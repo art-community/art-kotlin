@@ -2,22 +2,21 @@ plugins {
     kotlin("jvm") version "1.4.32"
 }
 
-println(rootProject.subprojects.map { it.name })
 
 dependencies {
-    implementation(project(":launcher"))
-    implementation(project(":core"))
-    implementation(project(":configurator"))
-    implementation(project(":server"))
-    implementation(project(":communicator"))
-    implementation(project(":value"))
-    implementation(project(":model"))
-    implementation(project(":rsocket"))
-    implementation(project(":http"))
-    implementation(project(":json"))
-    implementation(project(":message-pack"))
-    implementation(project(":protobuf"))
-    implementation(project(":scheduler"))
-    implementation(project(":logging"))
-    implementation(project(":rocks-db"))
+    implementation("io.art:launcher")
+    implementation("io.art:core")
+    implementation("io.art:configurator")
+    implementation("io.art:server")
+    implementation("io.art:communicator")
+    implementation("io.art:value")
+    implementation("io.art:model")
+    implementation("io.art:rsocket")
+    implementation("io.art:http")
+    implementation("io.art:json")
+    implementation("io.art:message-pack")
+    implementation("io.art:protobuf")
+    implementation("io.art:scheduler")
+    implementation("io.art:logging")
+    implementation("io.art:rocks-db")
 }
