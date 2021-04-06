@@ -1,22 +1,18 @@
-plugins {
-    kotlin("jvm") version "1.4.32"
-}
-
-
 dependencies {
-    implementation("io.art:launcher")
-    implementation("io.art:core")
-    implementation("io.art:configurator")
-    implementation("io.art:server")
-    implementation("io.art:communicator")
-    implementation("io.art:value")
-    implementation("io.art:model")
-    implementation("io.art:rsocket")
-    implementation("io.art:http")
-    implementation("io.art:json")
-    implementation("io.art:message-pack")
-    implementation("io.art:protobuf")
-    implementation("io.art:scheduler")
-    implementation("io.art:logging")
-    implementation("io.art:rocks-db")
+    implementation("io.art.java:launcher")
+    implementation("io.art.java:core")
+    implementation("io.art.java:configurator")
+    implementation("io.art.java:server")
+    implementation("io.art.java:communicator")
+    implementation("io.art.java:value")
+    implementation("io.art.java:model")
+    implementation("io.art.java:rsocket")
+    implementation("io.art.java:http")
+    implementation("io.art.java:json")
+    implementation("io.art.java:message-pack")
+    implementation("io.art.java:protobuf")
+    implementation("io.art.java:scheduler")
+    implementation("io.art.java:logging")
+    implementation("io.art.java:rocks-db")
 }
+

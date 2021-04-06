@@ -16,56 +16,21 @@
  * limitations under the License.
  */
 
-
 plugins {
-    idea
-    `java-library`
+    kotlin("jvm")
 }
 
-group = "io.art"
+group = "io.art.kotlin"
 
 allprojects {
     repositories {
         jcenter()
         mavenCentral()
-        maven {
-            url = uri("https://repo.spring.io/milestone")
-        }
     }
 }
 
 subprojects {
     group = rootProject.group
-
     apply(plugin = "java-library")
-
-    dependencies {
-        val lombokVersion: String by project
-        compileOnly("org.projectlombok", "lombok", lombokVersion)
-        annotationProcessor("org.projectlombok", "lombok", lombokVersion)
-    }
-
-    tasks.findByPath("check")?.let { check ->
-        check.setDependsOn(check.dependsOn
-                .filter { task ->
-                    when (task) {
-                        is String -> task != "test"
-                        is TaskProvider<*> -> task.name != "test"
-                        else -> true
-                    }
-                }
-                .toSet())
-    }
-
-    tasks.findByPath("build")?.let { check ->
-        check.setDependsOn(check.dependsOn
-                .filter { task ->
-                    when (task) {
-                        is String -> task != "test"
-                        is TaskProvider<*> -> task.name != "test"
-                        else -> true
-                    }
-                }
-                .toSet())
-    }
+    apply(plugin = "org.jetbrains.kotlin.jvm")
 }

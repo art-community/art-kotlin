@@ -17,4 +17,12 @@
  */
 
 rootProject.name = "art-kotlin"
+
+pluginManagement {
+    plugins {
+        val kotlinVersion: String by settings
+        kotlin("jvm") version kotlinVersion
+    }
+}
+
 include("kotlin-extensions")
