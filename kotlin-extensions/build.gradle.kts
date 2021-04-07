@@ -15,4 +15,3 @@ dependencies {
     implementation("io.art.java:logging")
     implementation("io.art.java:rocks-db")
 }
-

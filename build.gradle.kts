@@ -22,15 +22,17 @@ plugins {
 
 group = "io.art.kotlin"
 
+tasks.withType(type = Wrapper::class) {
+    gradleVersion = "7.0-rc-2"
+}
+
 allprojects {
     repositories {
-        jcenter()
         mavenCentral()
     }
 }
 
 subprojects {
     group = rootProject.group
-    apply(plugin = "java-library")
     apply(plugin = "org.jetbrains.kotlin.jvm")
 }
