@@ -18,6 +18,7 @@
 
 plugins {
     kotlin("jvm")
+    id("art-internal")
 }
 
 group = "io.art.kotlin"
