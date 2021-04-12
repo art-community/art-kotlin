@@ -23,6 +23,10 @@ pluginManagement {
         val kotlinVersion: String by settings
         kotlin("jvm") version kotlinVersion
     }
+    repositories {
+        gradlePluginPortal()
+        maven { url = uri("https://nexus.art-platform.io/repository/art-gradle-plugins/") }
+    }
 }
 
 include("kotlin-extensions")

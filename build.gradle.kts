@@ -18,7 +18,7 @@
 
 plugins {
     kotlin("jvm")
-    id("art-internal")
+    id("art-internal") version "main"
 }
 
 group = "io.art.kotlin"
