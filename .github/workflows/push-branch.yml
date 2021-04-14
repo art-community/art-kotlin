@@ -1,10 +1,13 @@
-name: ART Kotlin CI
-on: [push]
+name: ART Kotlin Build
+on:
+  push:
+    branches-ignore:
+      - main
 jobs:
   gradle:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
         jdk: [ 1.8, 11, 16 ]
     runs-on: ${{ matrix.os }}
     steps:
@@ -15,4 +18,4 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
-        run: ./gradlew clean build --max-workers 8 --configure-on-demand --parallel
+        run: ./gradlew clean build --max-workers 8 --parallel
