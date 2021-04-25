@@ -2,7 +2,6 @@ package io.art.kotlin.extensions.descriptor
 
 import io.art.json.descriptor.JsonReader.readJson
 import io.art.message.pack.descriptor.MessagePackReader.readMessagePack
-import io.art.protobuf.descriptor.ProtobufReader.readProtobuf
 import io.art.value.module.ValueModule.model
 
 inline fun <reified T> json(data: String): T = model(T::class.java, readJson(data))
