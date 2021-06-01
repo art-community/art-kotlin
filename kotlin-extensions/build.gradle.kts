@@ -12,5 +12,4 @@ dependencies {
     implementation("io.art.java:message-pack:main")
     implementation("io.art.java:scheduler:main")
     implementation("io.art.java:logging:main")
-    implementation("io.art.java:rocks-db:main")
 }
