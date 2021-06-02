@@ -1,7 +1,7 @@
 package io.art.kotlin.extensions.logger
 
-import io.art.logging.logger.Logger
-import io.art.logging.module.LoggingModule.logger
+import io.art.logging.LoggingModule.logger
+import org.apache.logging.log4j.core.Logger
 import kotlin.reflect.KClass
 
 
