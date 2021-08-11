@@ -36,4 +36,13 @@ pluginManagement {
     }
 }
 
-include("kotlin-extensions")
+include("core")
+include("configurator")
+include("meta")
+include("json")
+include("yaml")
+include("message-pack")
+include("logging")
+include("scheduler")
+include("launcher")
+include("rsocket")
