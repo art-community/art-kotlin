@@ -14,10 +14,10 @@ fun rsocket(configurator: RsocketInitializer.() -> Any) {
     }
 }
 
-fun <T : CommunicatorConfigurator> RsocketInitializer.communicator(configurator: RsocketCommunicatorConfigurator.() -> T) = apply {
+fun <T : CommunicatorConfigurator<RsocketCommunicatorConfigurator>> RsocketInitializer.communicator(configurator: RsocketCommunicatorConfigurator.() -> T) = apply {
     communicator { delegate -> configurator(delegate) }
 }
 
-fun <T : ServerConfigurator> RsocketInitializer.server(configurator: RsocketServerConfigurator.() -> T) = apply {
+fun <T : ServerConfigurator<RsocketServerConfigurator>> RsocketInitializer.server(configurator: RsocketServerConfigurator.() -> T) = apply {
     server { delegate -> configurator(delegate) }
 }
