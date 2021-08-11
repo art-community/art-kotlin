@@ -4,7 +4,9 @@ import io.art.logging.Logging.logger
 import io.art.logging.logger.Logger
 import kotlin.reflect.KClass
 
-fun Any.logger(): Logger = logger(this::class.java)
+fun logger(action: Logger.() -> Any) {
+    action(logger())
+}
 
 
 fun logger(type: KClass<*>): Logger = logger(type::class.java)
