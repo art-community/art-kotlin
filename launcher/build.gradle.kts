@@ -19,4 +19,7 @@
 dependencies {
     api("io.art.java:launcher:main")
     implementation(project(":core"))
+    implementation(project(":rsocket"))
+    implementation(project(":configurator"))
+    implementation(project(":logging"))
 }
