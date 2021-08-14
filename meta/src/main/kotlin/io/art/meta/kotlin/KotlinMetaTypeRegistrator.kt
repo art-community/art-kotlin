@@ -6,7 +6,7 @@ import io.art.meta.computer.TransformersComputer.computeOutputTransformer
 import io.art.meta.constants.MetaConstants.MetaTypeInternalKind.*
 import io.art.meta.model.MetaType
 import io.art.meta.registry.CustomMetaTypeMutableRegistry
-import io.art.meta.registry.CustomTransformerMutableRegistry
+import io.art.meta.registry.CustomMetaTransformerMutableRegistry
 import io.art.meta.transformer.CustomTransformers
 
 
@@ -48,7 +48,7 @@ private fun registerFunctionTransformer() {
         val parameter = type.parameters().get(0)
         KotlinFunctionTransformer(cast(computeOutputTransformer(parameter)))
     }
-    CustomTransformerMutableRegistry.register(Function0::class.java, CustomTransformers(input, output))
+    CustomMetaTransformerMutableRegistry.register(Function0::class.java, CustomTransformers(input, output))
 }
 
 private fun registerLazyTransformer() {
@@ -60,11 +60,11 @@ private fun registerLazyTransformer() {
         val parameter = type.parameters().get(0)
         KotlinLazyTransformer(cast(computeOutputTransformer(parameter)))
     }
-    CustomTransformerMutableRegistry.register(Lazy::class.java, CustomTransformers(input, output))
+    CustomMetaTransformerMutableRegistry.register(Lazy::class.java, CustomTransformers(input, output))
 }
 
 private fun registerSequenceTransformer() {
     val input = { _: MetaType<*> -> KotlinSequenceTransformer }
     val output = { _: MetaType<*> -> KotlinSequenceTransformer }
-    CustomTransformerMutableRegistry.register(Sequence::class.java, CustomTransformers(input, output))
+    CustomMetaTransformerMutableRegistry.register(Sequence::class.java, CustomTransformers(input, output))
 }
