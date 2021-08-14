@@ -5,7 +5,7 @@ import io.art.core.collection.ImmutableLazyMapImplementation
 import io.art.meta.transformer.MetaTransformer
 import java.util.function.Supplier
 
-class Function0Transformer(private val parameterTransformer: MetaTransformer<Any>) : MetaTransformer<Function0<*>> {
+class KotlinFunctionTransformer(private val parameterTransformer: MetaTransformer<Any>) : MetaTransformer<Function0<*>> {
     override fun toArray(value: Function0<*>): MutableList<*> = parameterTransformer.toArray(value())
 
     override fun toMap(value: Function0<*>): MutableMap<*, *> = parameterTransformer.toMap(value())

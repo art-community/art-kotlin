@@ -3,8 +3,7 @@ package io.art.meta.kotlin
 import io.art.core.caster.Caster.cast
 import io.art.meta.computer.TransformersComputer.computeInputTransformer
 import io.art.meta.computer.TransformersComputer.computeOutputTransformer
-import io.art.meta.constants.MetaConstants.MetaTypeInternalKind.SUPPLIER
-import io.art.meta.constants.MetaConstants.MetaTypeInternalKind.VOID
+import io.art.meta.constants.MetaConstants.MetaTypeInternalKind.*
 import io.art.meta.model.MetaType
 import io.art.meta.registry.CustomMetaTypeMutableRegistry
 import io.art.meta.registry.CustomTransformerMutableRegistry
@@ -22,16 +21,50 @@ internal fun registerKotlinMetaTypes() {
             .internalKind(SUPPLIER)
             .build()
             .let(CustomMetaTypeMutableRegistry::register)
+    MetaType.builder<Sequence<*>>()
+            .type(Sequence::class.java)
+            .internalKind(STREAM)
+            .build()
+            .let(CustomMetaTypeMutableRegistry::register)
+    MetaType.builder<Lazy<*>>()
+            .type(Lazy::class.java)
+            .internalKind(LAZY)
+            .build()
+            .let(CustomMetaTypeMutableRegistry::register)
 }
 
 internal fun registerKotlinMetaTransformers() {
+    registerFunctionTransformer()
+    registerLazyTransformer()
+    registerSequenceTransformer()
+}
+
+private fun registerFunctionTransformer() {
     val input = { type: MetaType<*> ->
         val parameter = type.parameters().get(0)
-        Function0Transformer(cast(computeInputTransformer(parameter)))
+        KotlinFunctionTransformer(cast(computeInputTransformer(parameter)))
     }
     val output = { type: MetaType<*> ->
         val parameter = type.parameters().get(0)
-        Function0Transformer(cast(computeOutputTransformer(parameter)))
+        KotlinFunctionTransformer(cast(computeOutputTransformer(parameter)))
     }
     CustomTransformerMutableRegistry.register(Function0::class.java, CustomTransformers(input, output))
+}
+
+private fun registerLazyTransformer() {
+    val input = { type: MetaType<*> ->
+        val parameter = type.parameters().get(0)
+        KotlinLazyTransformer(cast(computeInputTransformer(parameter)))
+    }
+    val output = { type: MetaType<*> ->
+        val parameter = type.parameters().get(0)
+        KotlinLazyTransformer(cast(computeOutputTransformer(parameter)))
+    }
+    CustomTransformerMutableRegistry.register(Lazy::class.java, CustomTransformers(input, output))
+}
+
+private fun registerSequenceTransformer() {
+    val input = { _: MetaType<*> -> KotlinSequenceTransformer }
+    val output = { _: MetaType<*> -> KotlinSequenceTransformer }
+    CustomTransformerMutableRegistry.register(Sequence::class.java, CustomTransformers(input, output))
 }

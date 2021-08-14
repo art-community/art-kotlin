@@ -12,7 +12,6 @@ inline fun <reified T> declaration(): MetaClass<T> = declaration(T::class.java)
 
 inline fun <reified T> definition(): MetaType<T> = declaration<T>().definition()
 
-
 object KotlinMetaActivator {
     fun <T : MetaLibrary> meta(factory: () -> T): ModuleActivator {
         return MetaActivator.meta {
@@ -22,7 +21,7 @@ object KotlinMetaActivator {
         }
     }
 
-    fun <T : MetaLibrary> meta(factory: () -> T, initializer: (current: MetaInitializer) -> MetaInitializer): ModuleActivator {
+    fun <T : MetaLibrary> meta(factory: () -> T, initializer: (MetaInitializer) -> MetaInitializer): ModuleActivator {
         val metaFactory: () -> MetaLibrary = {
             registerKotlinMetaTypes()
             registerKotlinMetaTransformers()

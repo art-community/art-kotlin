@@ -26,6 +26,6 @@ fun <T : MetaLibrary> Activator.meta(factory: () -> T) {
     module(KotlinMetaActivator.meta(factory))
 }
 
-fun <T : MetaLibrary> Activator.meta(factory: () -> T, initializer: (current: MetaInitializer) -> MetaInitializer) {
+fun <T : MetaLibrary> Activator.meta(factory: () -> T, initializer: (MetaInitializer) -> MetaInitializer) {
     module(KotlinMetaActivator.meta(factory, initializer))
 }
