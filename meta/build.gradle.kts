@@ -17,5 +17,6 @@
  */
 
 dependencies {
+    implementation(project(":core"))
     api("io.art.java:meta:main")
 }

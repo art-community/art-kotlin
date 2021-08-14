@@ -22,4 +22,5 @@ dependencies {
     implementation(project(":rsocket"))
     implementation(project(":configurator"))
     implementation(project(":logging"))
+    implementation(project(":meta"))
 }
