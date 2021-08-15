@@ -17,7 +17,7 @@
  */
 
 dependencies {
-    val artJavaVersion: String by project
-    api("io.art.java:message-pack:$artJavaVersion")
+    val javaModulesVersion: String by project
+    api("io.art.java:message-pack:$javaModulesVersion")
     api(project(":meta"))
 }

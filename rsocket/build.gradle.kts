@@ -17,11 +17,11 @@
  */
 
 dependencies {
-    val artJavaVersion: String by project
-    api("io.art.java:rsocket:$artJavaVersion")
-    api("io.art.java:server:$artJavaVersion")
-    api("io.art.java:communicator:$artJavaVersion")
-    api("io.art.java:transport:$artJavaVersion")
+    val javaModulesVersion: String by project
+    api("io.art.java:rsocket:$javaModulesVersion")
+    api("io.art.java:server:$javaModulesVersion")
+    api("io.art.java:communicator:$javaModulesVersion")
+    api("io.art.java:transport:$javaModulesVersion")
 
     api(project(":meta"))
     api(project(":core"))

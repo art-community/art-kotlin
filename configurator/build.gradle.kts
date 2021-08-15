@@ -17,7 +17,7 @@
  */
 
 dependencies {
-    val artJavaVersion: String by project
-    api("io.art.java:configurator:$artJavaVersion")
+    val javaModulesVersion: String by project
+    api("io.art.java:configurator:$javaModulesVersion")
     api(project(":core"))
 }

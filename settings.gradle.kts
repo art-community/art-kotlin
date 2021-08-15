@@ -23,16 +23,18 @@ pluginManagement {
         gradlePluginPortal()
         maven { url = uri("https://nexus.art-platform.io/repository/art-gradle-plugins/") }
     }
-    plugins {
-        val kotlinVersion: String by settings
-        kotlin("jvm") version kotlinVersion
-    }
     resolutionStrategy {
         eachPlugin {
             if (requested.id.id.contains("art")) {
-                useModule("io.art.gradle:art-gradle:main")
+                useModule("io.art.gradle:art-gradle:${requested.id}")
             }
         }
+    }
+    plugins {
+        val kotlinVersion: String by settings
+        val internalPluginVersion: String by settings
+        kotlin("jvm") version kotlinVersion
+        id("art-internal-jvm") version internalPluginVersion
     }
 }
 
