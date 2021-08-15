@@ -23,4 +23,8 @@ dependencies {
     implementation(project(":configurator"))
     implementation(project(":logging"))
     implementation(project(":meta"))
+    implementation(project(":json"))
+    implementation(project(":message-pack"))
+    implementation(project(":yaml"))
+    implementation(project(":scheduler"))
 }
