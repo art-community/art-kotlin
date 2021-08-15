@@ -18,5 +18,5 @@
 
 dependencies {
     api("io.art.java:yaml:main")
-    implementation(project(":meta"))
+    api(project(":meta"))
 }

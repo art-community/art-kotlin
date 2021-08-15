@@ -21,7 +21,7 @@ dependencies {
     api("io.art.java:server:main")
     api("io.art.java:communicator:main")
     api("io.art.java:transport:main")
-    implementation(project(":meta"))
-    implementation(project(":core"))
+    api(project(":meta"))
+    api(project(":core"))
     implementation(project(":logging"))
 }

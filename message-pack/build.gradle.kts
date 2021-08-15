@@ -18,5 +18,5 @@
 
 dependencies {
     api("io.art.java:message-pack:main")
-    implementation(project(":meta"))
+    api(project(":meta"))
 }

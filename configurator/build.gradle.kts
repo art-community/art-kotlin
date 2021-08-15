@@ -18,5 +18,5 @@
 
 dependencies {
     api("io.art.java:configurator:main")
-    implementation(project(":core"))
+    api(project(":core"))
 }

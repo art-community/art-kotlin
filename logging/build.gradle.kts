@@ -18,5 +18,5 @@
 
 dependencies {
     api("io.art.java:logging:main")
-    implementation(project(":meta"))
+    api(project(":meta"))
 }

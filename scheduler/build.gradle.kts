@@ -18,5 +18,5 @@
 
 dependencies {
     api("io.art.java:scheduler:main")
-    implementation(project(":core"))
+    api(project(":core"))
 }
