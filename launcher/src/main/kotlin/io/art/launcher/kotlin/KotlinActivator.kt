@@ -12,6 +12,7 @@ import io.art.message.pack.module.MessagePackActivator
 import io.art.meta.kotlin.KotlinMetaActivator
 import io.art.meta.model.MetaLibrary
 import io.art.meta.module.MetaInitializer
+import io.art.resilience.module.ResilienceActivator
 import io.art.rsocket.module.RsocketActivator
 import io.art.rsocket.module.RsocketInitializer
 import io.art.scheduler.module.SchedulerActivator
@@ -83,4 +84,8 @@ fun Activator.rsocket(configurator: RsocketInitializer.() -> Any) {
 
 fun Activator.scheduler() {
     module(SchedulerActivator.scheduler())
+}
+
+fun Activator.resilience() {
+    module(ResilienceActivator.resilience())
 }
