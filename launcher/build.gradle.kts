@@ -31,4 +31,5 @@ dependencies {
     implementation(project(":message-pack"))
     implementation(project(":yaml"))
     implementation(project(":scheduler"))
+    implementation(project(":transport"))
 }

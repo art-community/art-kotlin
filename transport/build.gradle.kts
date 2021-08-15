@@ -18,12 +18,5 @@
 
 dependencies {
     val javaModulesVersion: String by project
-    api("io.art.java:rsocket:$javaModulesVersion")
-    api("io.art.java:server:$javaModulesVersion")
-    api("io.art.java:communicator:$javaModulesVersion")
-
-    api(project("::transport"))
-    api(project(":meta"))
-    api(project(":core"))
-    implementation(project(":logging"))
+    api("io.art.java:transport:$javaModulesVersion")
 }

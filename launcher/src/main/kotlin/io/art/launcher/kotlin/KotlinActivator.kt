@@ -16,6 +16,7 @@ import io.art.resilience.module.ResilienceActivator
 import io.art.rsocket.module.RsocketActivator
 import io.art.rsocket.module.RsocketInitializer
 import io.art.scheduler.module.SchedulerActivator
+import io.art.transport.module.TransportActivator
 import io.art.yaml.module.YamlActivator
 
 fun activator(action: Activator.() -> Any) {
@@ -88,4 +89,8 @@ fun Activator.scheduler() {
 
 fun Activator.resilience() {
     module(ResilienceActivator.resilience())
+}
+
+fun Activator.transport() {
+    module(TransportActivator.transport())
 }
