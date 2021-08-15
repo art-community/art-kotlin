@@ -17,7 +17,9 @@
  */
 
 dependencies {
-    api("io.art.java:launcher:main")
+    val artJavaVersion: String by project
+    api("io.art.java:launcher:$artJavaVersion")
+
     implementation(project(":core"))
     implementation(project(":rsocket"))
     implementation(project(":configurator"))

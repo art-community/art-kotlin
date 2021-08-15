@@ -17,10 +17,12 @@
  */
 
 dependencies {
-    api("io.art.java:rsocket:main")
-    api("io.art.java:server:main")
-    api("io.art.java:communicator:main")
-    api("io.art.java:transport:main")
+    val artJavaVersion: String by project
+    api("io.art.java:rsocket:$artJavaVersion")
+    api("io.art.java:server:$artJavaVersion")
+    api("io.art.java:communicator:$artJavaVersion")
+    api("io.art.java:transport:$artJavaVersion")
+
     api(project(":meta"))
     api(project(":core"))
     implementation(project(":logging"))

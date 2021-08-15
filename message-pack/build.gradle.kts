@@ -17,6 +17,7 @@
  */
 
 dependencies {
-    api("io.art.java:message-pack:main")
+    val artJavaVersion: String by project
+    api("io.art.java:message-pack:$artJavaVersion")
     api(project(":meta"))
 }

@@ -17,6 +17,7 @@
  */
 
 dependencies {
-    api("io.art.java:scheduler:main")
+    val artJavaVersion: String by project
+    api("io.art.java:scheduler:$artJavaVersion")
     api(project(":core"))
 }

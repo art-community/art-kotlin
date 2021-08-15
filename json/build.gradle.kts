@@ -17,6 +17,7 @@
  */
 
 dependencies {
-    api("io.art.java:json:main")
+    val artJavaVersion: String by project
+    api("io.art.java:json:$artJavaVersion")
     api(project(":meta"))
 }
