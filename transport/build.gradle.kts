@@ -19,4 +19,6 @@
 dependencies {
     val javaModulesVersion: String by project
     api("io.art.java:transport:$javaModulesVersion")
+    implementation(project(":yaml"))
+    implementation(project(":json"))
 }
