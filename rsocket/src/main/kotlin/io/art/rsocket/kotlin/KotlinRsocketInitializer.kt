@@ -1,9 +1,9 @@
 package io.art.rsocket.kotlin
 
 import io.art.communicator.configurator.CommunicatorConfigurator
-import io.art.rsocket.module.RsocketCommunicatorConfigurator
+import io.art.rsocket.configurator.communicator.RsocketCommunicatorConfigurator
 import io.art.rsocket.module.RsocketInitializer
-import io.art.rsocket.module.RsocketServerConfigurator
+import io.art.rsocket.configurator.server.RsocketServerConfigurator
 import io.art.server.configurator.ServerConfigurator
 
 fun <T : CommunicatorConfigurator<RsocketCommunicatorConfigurator>> RsocketInitializer.communicator(configurator: RsocketCommunicatorConfigurator.() -> T) = apply {
