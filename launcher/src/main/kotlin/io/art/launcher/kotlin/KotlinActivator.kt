@@ -2,6 +2,8 @@ package io.art.launcher.kotlin
 
 import io.art.configurator.module.ConfiguratorActivator
 import io.art.configurator.module.ConfiguratorInitializer
+import io.art.http.module.HttpActivator
+import io.art.http.module.HttpInitializer
 import io.art.json.module.JsonActivator
 import io.art.launcher.Activator
 import io.art.launcher.Activator.activator
@@ -77,6 +79,14 @@ fun Activator.yaml() {
 
 fun Activator.rsocket(configurator: RsocketInitializer.() -> Any) {
     val activator = RsocketActivator.rsocket { initializer ->
+        configurator(initializer)
+        initializer
+    }
+    module(activator)
+}
+
+fun Activator.http(configurator: HttpInitializer.() -> Any) {
+    val activator = HttpActivator.http { initializer ->
         configurator(initializer)
         initializer
     }

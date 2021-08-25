@@ -24,6 +24,7 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":rsocket"))
+    implementation(project(":http"))
     implementation(project(":configurator"))
     implementation(project(":logging"))
     implementation(project(":meta"))
