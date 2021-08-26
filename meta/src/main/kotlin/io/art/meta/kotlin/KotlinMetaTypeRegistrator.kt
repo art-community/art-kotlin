@@ -75,12 +75,8 @@ private fun registerLazyTransformer() {
 }
 
 private fun registerPairTransformer() {
-    val input = { _: MetaType<*> ->
-        KotlinPairTransformer()
-    }
-    val output = { _: MetaType<*> ->
-        KotlinPairTransformer()
-    }
+    val input = { _: MetaType<*> -> KotlinPairTransformer }
+    val output = { _: MetaType<*> -> KotlinPairTransformer }
     CustomMetaTransformerMutableRegistry.register(Pair::class.java, CustomTransformers(input, output))
 }
 
