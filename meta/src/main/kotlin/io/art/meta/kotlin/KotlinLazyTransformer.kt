@@ -34,7 +34,7 @@ class KotlinLazyTransformer(private val parameterTransformer: MetaTransformer<An
 
     override fun toLazyMap(value: Lazy<*>): ImmutableLazyMapImplementation<*, *> = parameterTransformer.toLazyMap(value.value)
 
-    override fun toLazy(value: Lazy<*>): Supplier<*> = parameterTransformer.toLazy(value.value)
+    override fun toLazy(value: Lazy<*>): Supplier<*> = Supplier { value.value }
 
     override fun fromArray(value: MutableList<*>): Lazy<*> = lazy { parameterTransformer.fromArray(value) }
 
@@ -64,5 +64,5 @@ class KotlinLazyTransformer(private val parameterTransformer: MetaTransformer<An
 
     override fun fromLazyMap(value: ImmutableLazyMapImplementation<*, *>): Lazy<*> = lazy { parameterTransformer.fromLazyMap(value) }
 
-    override fun fromLazy(value: Supplier<*>): Lazy<*> = lazy { parameterTransformer.fromLazy(value) }
+    override fun fromLazy(value: Supplier<*>): Lazy<*> = lazy { value.get() }
 }
