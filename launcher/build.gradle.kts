@@ -20,8 +20,6 @@ dependencies {
     val javaModulesVersion: String by project
     api("io.art.java:launcher:$javaModulesVersion")
 
-    implementation("io.art.java:resilience:$javaModulesVersion")
-
     implementation(project(":core"))
     implementation(project(":rsocket"))
     implementation(project(":http"))
