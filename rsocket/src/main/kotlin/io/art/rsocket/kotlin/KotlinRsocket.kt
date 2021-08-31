@@ -1,6 +1,6 @@
 package io.art.rsocket.kotlin
 
-import io.art.core.communication.Connector
+import io.art.communicator.Connector
 import io.art.meta.model.MetaClass
 import io.art.meta.model.MetaMethod
 import io.art.rsocket.Rsocket.rsocketConnector
