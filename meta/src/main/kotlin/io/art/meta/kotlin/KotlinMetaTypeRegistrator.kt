@@ -1,8 +1,8 @@
 package io.art.meta.kotlin
 
 import io.art.core.caster.Caster.cast
-import io.art.meta.computer.TransformersComputer.computeInputTransformer
-import io.art.meta.computer.TransformersComputer.computeOutputTransformer
+import io.art.meta.model.TransformersComputer.computeInputTransformer
+import io.art.meta.model.TransformersComputer.computeOutputTransformer
 import io.art.meta.constants.MetaConstants.MetaTypeInternalKind.*
 import io.art.meta.model.MetaType
 import io.art.meta.registry.CustomMetaTransformerMutableRegistry
