@@ -17,19 +17,16 @@ inline fun <reified T> definition(): MetaType<T> = Meta.definition(object : Type
 
 object KotlinMetaActivator {
     fun <T : MetaLibrary> meta(factory: () -> T): ModuleActivator {
-        return MetaActivator.meta {
-            registerKotlinMetaTypes()
-            registerKotlinMetaTransformers()
-            factory()
+        return MetaActivator.meta(factory) { initializer ->
+            initializer
+                    .registerKotlinMetaTypes()
+                    .registerKotlinMetaTransformers()
         }
     }
 
     fun <T : MetaLibrary> meta(factory: () -> T, initializer: (MetaInitializer) -> MetaInitializer): ModuleActivator {
-        val metaFactory: () -> MetaLibrary = {
-            registerKotlinMetaTypes()
-            registerKotlinMetaTransformers()
-            factory()
+        return MetaActivator.meta(factory) { current ->
+            initializer(current.registerKotlinMetaTypes().registerKotlinMetaTransformers())
         }
-        return MetaActivator.meta(metaFactory, initializer)
     }
 }
