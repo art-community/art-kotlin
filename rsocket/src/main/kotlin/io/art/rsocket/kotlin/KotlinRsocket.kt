@@ -12,7 +12,9 @@ inline fun <reified T : Connector> rsocketConnector(): T = rsocketConnector(T::c
 inline fun <reified T : Connector> rsocketConnector(action: T.() -> Any): Any = action(rsocketConnector(T::class.java) as T)
 
 
-inline fun <reified C, reified M : MetaClass<C>> rsocketState(crossinline method: (owner: M) -> MetaMethod<*>): RsocketLocalState = rsocketState(C::class.java) { owner: M -> method(owner) }
+inline fun <reified C, reified M : MetaClass<C>> rsocketState(crossinline method: (owner: M) -> MetaMethod<*>): RsocketLocalState = rsocketState(C::class.java) { owner: M ->
+    method(owner)
+}
 
 inline fun <reified C, reified M : MetaClass<C>> rsocketState(crossinline method: (owner: M) -> MetaMethod<*>, action: RsocketLocalState.() -> Any) {
     action(rsocketState(C::class.java) { owner: M -> method(owner) })
