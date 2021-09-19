@@ -1,7 +1,10 @@
 package io.art.logging.kotlin
 
+import io.art.launcher.Activator
 import io.art.logging.Logging.logger
 import io.art.logging.logger.Logger
+import io.art.logging.module.LoggingActivator
+import io.art.logging.module.LoggingInitializer
 import kotlin.reflect.KClass
 
 fun logger(action: Logger.() -> Any) {
@@ -57,3 +60,12 @@ fun error(message: String) = logger().error(message)
 fun error(format: String, vararg arguments: Any) = logger().error(format, arguments)
 
 fun error(message: String, error: Throwable) = logger().error(message, error)
+
+
+fun Activator.logging(configurator: LoggingInitializer.() -> Any = {}) {
+    val activator = LoggingActivator.logging { initializer ->
+        configurator(initializer)
+        initializer
+    }
+    module(activator)
+}

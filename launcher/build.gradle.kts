@@ -31,4 +31,5 @@ dependencies {
     implementation(project(":yaml"))
     implementation(project(":scheduler"))
     implementation(project(":transport"))
+    implementation(project(":tests"))
 }

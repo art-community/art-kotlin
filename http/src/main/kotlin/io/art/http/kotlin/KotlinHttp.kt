@@ -3,7 +3,10 @@ package io.art.http.kotlin
 import io.art.communicator.Connector
 import io.art.http.Http.httpConnector
 import io.art.http.Http.httpState
+import io.art.http.module.HttpActivator.http
+import io.art.http.module.HttpInitializer
 import io.art.http.state.HttpLocalState
+import io.art.launcher.Activator
 import io.art.meta.model.MetaClass
 import io.art.meta.model.MetaMethod
 import kotlin.properties.PropertyDelegateProvider
@@ -29,3 +32,12 @@ val HttpLocalState.query
     get() = PropertyDelegateProvider { _: Any?, _ ->
         ReadOnlyProperty<Any?, String?> { _, property -> queryParameters()[property.name] }
     }
+
+
+fun Activator.http(configurator: HttpInitializer.() -> Any) {
+    val activator = http { initializer ->
+        configurator(initializer)
+        initializer
+    }
+    module(activator)
+}

@@ -21,6 +21,7 @@ dependencies {
     api("io.art.java:http:$javaModulesVersion")
     api("io.art.java:server:$javaModulesVersion")
     api("io.art.java:communicator:$javaModulesVersion")
+    implementation("io.art.java:launcher:$javaModulesVersion")
 
     api(project("::transport"))
     api(project(":meta"))

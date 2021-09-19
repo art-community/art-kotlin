@@ -1,6 +1,7 @@
 package io.art.meta.kotlin
 
 import io.art.core.module.ModuleActivator
+import io.art.launcher.Activator
 import io.art.meta.Meta
 import io.art.meta.Meta.declaration
 import io.art.meta.model.MetaClass
@@ -29,4 +30,13 @@ object KotlinMetaActivator {
             initializer(current.registerKotlinMetaTypes().registerKotlinMetaTransformers())
         }
     }
+}
+
+
+fun <T : MetaLibrary> Activator.meta(factory: () -> T) {
+    module(KotlinMetaActivator.meta(factory))
+}
+
+fun <T : MetaLibrary> Activator.meta(factory: () -> T, initializer: (MetaInitializer) -> MetaInitializer) {
+    module(KotlinMetaActivator.meta(factory, initializer))
 }

@@ -20,4 +20,6 @@ dependencies {
     val javaModulesVersion: String by project
     api("io.art.java:configurator:$javaModulesVersion")
     api(project(":core"))
+
+    implementation("io.art.java:launcher:$javaModulesVersion")
 }
