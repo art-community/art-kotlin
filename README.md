@@ -6,7 +6,7 @@ ART Kotlin is a kit of modules for developing multifunctional applications for J
 ![GitHub repo size](https://img.shields.io/github/repo-size/art-community/art-kotlin)
 
 ## Build and Binaries
-Releases are available via [ART Platform nexus](https://nexus.art-platform.io/repository/art-maven-stable/).
+Releases are available via [ART Platform nexus](https://nexus.art-platform.io/repository/art-maven/).
 
 ## Requirements
 - Java 8+
