@@ -34,7 +34,7 @@ val HttpLocalState.query
     get() = ReadOnlyProperty<Any?, String?> { _, property -> queryParameters()[property.name] }
 
 
-fun Activator.http(configurator: HttpInitializer.() -> Any) {
+fun Activator.http(configurator: HttpInitializer.() -> Any = {}) {
     val activator = http { initializer ->
         configurator(initializer)
         initializer

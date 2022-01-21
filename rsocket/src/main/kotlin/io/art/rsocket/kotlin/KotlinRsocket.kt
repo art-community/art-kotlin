@@ -24,7 +24,7 @@ inline fun <reified C, reified M : MetaClass<C>> rsocketState(crossinline method
 }
 
 
-fun Activator.rsocket(configurator: RsocketInitializer.() -> Any) {
+fun Activator.rsocket(configurator: RsocketInitializer.() -> Any = {}) {
     val activator = RsocketActivator.rsocket { initializer ->
         configurator(initializer)
         initializer
