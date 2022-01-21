@@ -11,9 +11,9 @@ import io.art.meta.model.MetaClass
 import io.art.meta.model.MetaMethod
 import kotlin.properties.ReadOnlyProperty
 
-inline fun <reified T : Portal> httpConnector(): T = http(T::class.java) as T
+inline fun <reified T : Portal> http(): T = http(T::class.java) as T
 
-inline fun <reified T : Portal> httpConnector(action: T.() -> Any): Any = action(http(T::class.java) as T)
+inline fun <reified T : Portal> http(action: T.() -> Any): Any = action(http(T::class.java) as T)
 
 
 inline fun <reified C, reified M : MetaClass<C>> httpState(crossinline method: (owner: M) -> MetaMethod<*>): HttpLocalState = httpState(C::class.java) { owner: M -> method(owner) }

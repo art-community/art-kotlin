@@ -10,9 +10,9 @@ import io.art.rsocket.module.RsocketActivator
 import io.art.rsocket.module.RsocketInitializer
 import io.art.rsocket.state.RsocketModuleState.RsocketLocalState
 
-inline fun <reified T : Portal> rsocketConnector(): T = rsocket(T::class.java) as T
+inline fun <reified T : Portal> rsocket(): T = rsocket(T::class.java) as T
 
-inline fun <reified T : Portal> rsocketConnector(action: T.() -> Any): Any = action(rsocket(T::class.java) as T)
+inline fun <reified T : Portal> rsocket(action: T.() -> Any): Any = action(rsocket(T::class.java) as T)
 
 
 inline fun <reified C, reified M : MetaClass<C>> rsocketState(crossinline method: (owner: M) -> MetaMethod<*>): RsocketLocalState = rsocketState(C::class.java) { owner: M ->
