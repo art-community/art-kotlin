@@ -15,14 +15,6 @@ inline fun <reified T : Portal> rsocket(): T = rsocket(T::class.java) as T
 inline fun <reified T : Portal> rsocket(action: T.() -> Any): Any = action(rsocket(T::class.java) as T)
 
 
-inline fun <reified C, reified M : MetaClass<C>> rsocketState(crossinline method: (owner: M) -> MetaMethod<*>): RsocketLocalState = rsocketState(C::class.java) { owner: M ->
-    method(owner)
-}
-
-inline fun <reified C, reified M : MetaClass<C>> rsocketState(crossinline method: (owner: M) -> MetaMethod<*>, action: RsocketLocalState.() -> Any) {
-    action(rsocketState(C::class.java) { owner: M -> method(owner) })
-}
-
 
 fun Activator.rsocket(configurator: RsocketInitializer.() -> Any = {}) {
     val activator = RsocketActivator.rsocket { initializer ->
