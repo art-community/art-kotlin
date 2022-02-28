@@ -1,18 +1,14 @@
 package io.art.rsocket.kotlin
 
-import io.art.communicator.Portal
+import io.art.communicator.ConnectorIdentifier
 import io.art.launcher.Activator
-import io.art.meta.model.MetaClass
-import io.art.meta.model.MetaMethod
 import io.art.rsocket.Rsocket.rsocket
-import io.art.rsocket.Rsocket.rsocketState
 import io.art.rsocket.module.RsocketActivator
 import io.art.rsocket.module.RsocketInitializer
-import io.art.rsocket.state.RsocketModuleState.RsocketLocalState
 
-inline fun <reified T : Portal> rsocket(): T = rsocket(T::class.java) as T
+inline fun <reified T : ConnectorIdentifier> rsocket(): T = rsocket(T::class.java) as T
 
-inline fun <reified T : Portal> rsocket(action: T.() -> Any): Any = action(rsocket(T::class.java) as T)
+inline fun <reified T : ConnectorIdentifier> rsocket(action: T.() -> Any): Any = action(rsocket(T::class.java) as T)
 
 
 
