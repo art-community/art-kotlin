@@ -1,7 +1,6 @@
 package io.art.http.kotlin
 
-import io.art.communicator.ConnectorIdentifier
-import io.art.http.Http.http
+import io.art.communicator.model.ConnectorIdentifier
 import io.art.http.module.HttpActivator.http
 import io.art.http.module.HttpInitializer
 import io.art.http.state.HttpLocalState
