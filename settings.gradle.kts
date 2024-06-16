@@ -22,7 +22,7 @@ pluginManagement {
     val internalPluginVersion: String by settings
     repositories {
         gradlePluginPortal()
-        maven { url = uri("https://nexus.art-platform.io/repository/art-gradle-plugins/") }
+        maven { url = uri("https://repsy.io/mvn/antonsh/art-packages/") }
     }
     resolutionStrategy {
         eachPlugin {
